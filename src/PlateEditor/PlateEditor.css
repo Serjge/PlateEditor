@@ -1,0 +1,58 @@
+td {
+    border: 1px solid;
+}
+
+[data-slate-editor] {
+    padding: 50px 50px 50px;
+    position: relative;
+    width: 100%;
+    height: inherit;
+    overflow: auto;
+    min-height: 200px;
+    max-height: inherit;
+    background: white !important;
+}
+
+.slate-HeadingToolbar {
+    padding:0 ;
+    position: sticky;
+    top: 0;
+    background: white !important;
+    z-index: 1000;
+    width: calc(100% - 20px);
+}
+
+.tippy-box[data-theme~='tomato'] {
+    background-color: tomato;
+    color: yellow;
+}
+
+.slate-selection-area {
+    background: #4f90f22d;
+    border: 1px solid #4f90f2;
+}
+
+.drag-button {
+    overflow: hidden;
+    padding: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border-style: none;
+    cursor: pointer;
+    outline: 0;
+
+    min-width: 18px;
+    min-height: 18px;
+}
+
+.MuiSvgIcon-root {
+    font-size: 18px !important;
+}
+
+ .slate-code_block {
+  background-color: #111827 !important;
+}
+
+.slate-code_block code {
+  color: white;
+}

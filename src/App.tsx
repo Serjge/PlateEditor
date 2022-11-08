@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { plainTextValue } from 'basicValue';
+import { PlateEditor } from 'PlateEditor/PlateEditor';
+import { MyValue } from 'PlateEditor/types';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [ value, setValue ] = useState<MyValue>()
+  console.log(value)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="app-wrapper">
+        <h1 className={ 'title' }>Plate editor</h1>
+        <div className={ 'container' }>
+          <PlateEditor onChange={ setValue } value={ value }
+                       initialValue={ plainTextValue }/>
+        </div>
+        <h2 className={ 'title' }>Plate editor read only</h2>
+        <div className={ 'container' }>
+          <PlateEditor initialValue={ plainTextValue } value={ value } hiddenToolbar
+                       readOnly/>
+        </div>
+      </div>
     </div>
   );
 }
