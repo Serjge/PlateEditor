@@ -12,15 +12,22 @@ function App() {
     <div className="app">
       <div className="app-wrapper">
         <h1 className={ 'title' }>Plate editor</h1>
-        <div className={ 'container' }>
-          <PlateEditor onChange={ setValue } value={ value }
-                       initialValue={ plainTextValue }/>
-        </div>
+
+        <PlateEditor
+          className={ 'container' }
+          onChange={ setValue }
+          value={ value }
+          initialValue={ plainTextValue }
+        />
+
         <h2 className={ 'title' }>Plate editor read only</h2>
-        <div className={ 'container' }>
-          <PlateEditor initialValue={ plainTextValue } value={ value } hiddenToolbar
-                       readOnly/>
-        </div>
+
+        <PlateEditor className={ 'container' }
+                     initialValue={ plainTextValue }
+                     hiddenToolbar
+                     readOnly
+        />
+
       </div>
     </div>
   );

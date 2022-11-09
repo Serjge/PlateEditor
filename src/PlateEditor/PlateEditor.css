@@ -5,21 +5,20 @@ td {
 [data-slate-editor] {
     padding: 50px 50px 50px;
     position: relative;
-    width: 100%;
+    width: calc(100% + 20px);
     height: inherit;
     overflow: auto;
     min-height: 200px;
     max-height: inherit;
-    background: white !important;
+    background: white;
 }
 
 .slate-HeadingToolbar {
-    padding:0 ;
-    position: sticky;
-    top: 0;
-    background: white !important;
-    z-index: 1000;
-    width: calc(100% - 20px);
+    padding: 10px !important;
+    margin: 0 !important;
+    position: relative !important;
+    background: white;
+    width: 100%;
 }
 
 .tippy-box[data-theme~='tomato'] {
@@ -49,10 +48,19 @@ td {
     font-size: 18px !important;
 }
 
- .slate-code_block {
-  background-color: #111827 !important;
+.slate-code_block {
+    background-color: #111827 !important;
 }
 
 .slate-code_block code {
-  color: white;
+    color: white;
+}
+
+.plate-container {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+    max-height: 1000px;
+    height: inherit;
+    display: block;
 }

@@ -17,7 +17,6 @@ import {
 } from '@udecode/plate';
 import { AlignToolbarButtons } from 'PlateEditor/toolbar/AlignToolbarButtons';
 import React, { ReactElement } from 'react';
-
 import { Check } from 'styled-icons/material';
 import { BasicElementToolbarButtons } from './BasicElementToolbarButtons';
 import { BasicMarkToolbarButtons } from './BasicMarkToolbarButtons';
@@ -33,16 +32,13 @@ export const Toolbar = (props: ToolbarProps) => <HeadingToolbar { ...props } />;
 
 export const ToolbarButtons = (): ReactElement => {
   return (
-    <Toolbar style={ { position: 'absolute', top: '0px', margin: 0, padding: 0 } }>
+    <Toolbar>
       <LineHeightToolbarDropdown icon={ <LineWeight/> }/>
       <AlignToolbarButtons/>
       <BasicMarkToolbarButtons/>
       <BasicElementToolbarButtons/>
-      <TableToolbarButtons/>
       <ListToolbarButtons/>
       <LinkToolbarButton icon={ <Link/> }/>
-      <ImageToolbarButton icon={ <Image/> }/>
-      <MediaEmbedToolbarButton icon={ <OndemandVideo/> }/>
       <ColorPickerToolbarDropdown
         pluginKey={ MARK_COLOR }
         icon={ <FormatColorText/> }
@@ -55,6 +51,9 @@ export const ToolbarButtons = (): ReactElement => {
         selectedIcon={ <Check/> }
         tooltip={ tooltips.bg }
       />
+      <ImageToolbarButton icon={ <Image/> }/>
+      <MediaEmbedToolbarButton icon={ <OndemandVideo/> }/>
+      <TableToolbarButtons/>
     </Toolbar>
 
   )

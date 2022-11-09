@@ -17,11 +17,11 @@
 }
 
 .container {
-    position: relative;
+    /*position: relative;*/
     margin-top: 50px;
     margin-bottom: 50px;
     width: 70%;
     height: 800px;
     max-height: 500px;
-    display: block;
+    /*display: block;*/
 }

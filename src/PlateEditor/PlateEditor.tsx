@@ -2,7 +2,7 @@ import { Plate, PlateProvider, TEditableProps } from '@udecode/plate';
 import { plugins } from 'PlateEditor/plugins/plugins';
 import { ToolbarButtons } from 'PlateEditor/toolbar/ToolbarButtons';
 import { MyValue } from 'PlateEditor/types';
-import React, { ReactElement, useRef } from 'react';
+import React, { ReactElement } from 'react';
 import './PlateEditor.css';
 
 type PlateEditorType = {
@@ -14,6 +14,7 @@ type PlateEditorType = {
   placeholder?: string;
   spellCheck?: boolean;
   initialValue?: MyValue;
+  className?: string
 }
 
 export const PlateEditor = (props: PlateEditorType): ReactElement => {
@@ -21,15 +22,14 @@ export const PlateEditor = (props: PlateEditorType): ReactElement => {
     value,
     onChange,
     hiddenToolbar,
+    initialValue,
+    className,
     readOnly = false,
     placeholder = '',
     spellCheck = true,
     autoFocus = false,
-    initialValue,
-    
   } = props
-  const ref = useRef<HTMLDivElement | null>(null)
-  console.log(ref.current)
+
   const editableProps: TEditableProps<MyValue> = {
     spellCheck,
     autoFocus,
@@ -38,18 +38,17 @@ export const PlateEditor = (props: PlateEditorType): ReactElement => {
   };
 
   return (
+    <div className={ `plate-container ${ className }` }>
+      <PlateProvider<MyValue>
+        initialValue={ initialValue }
+        value={ value }
+        onChange={ onChange }
+        plugins={ plugins }
+      >
+        { !hiddenToolbar && <ToolbarButtons/> }
 
-    <PlateProvider<MyValue>
-      initialValue={ initialValue }
-
-      value={ value }
-      onChange={ onChange }
-      plugins={ plugins }
-    >
-      {!hiddenToolbar && <ToolbarButtons/> }
-
-      <Plate<MyValue> editableRef={ref}  editableProps={ editableProps }/>
-    </PlateProvider>
-
+        <Plate<MyValue> editableProps={ editableProps }/>
+      </PlateProvider>
+    </div>
   );
 };
